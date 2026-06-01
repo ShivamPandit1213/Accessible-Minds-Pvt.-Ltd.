@@ -1,0 +1,1699 @@
+Issue ID,Rule ID,Screen,URL,Issue Frequency,Assistive Technology Combination,Summary,Steps to Reproduce,Actual Result,Expected Result,Screenshot,WCAG Success Criteria,WCAG Conformance Level,Functional Impact,Accessibility Impact / Severity,Instances,Disability Affected,Recommendation,QA Status,QA Comment,QA Screencast,QA Recommendation,,,,
+1,man-auto-14,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Global,Windows/ Chrome,<html> element must have a lang attribute,"1. Go to the URL.
+2. Open the Browser Console.
+3. Run aXe Scan.
+4. Look for issue ""<html> element must have a lang attribute"" as it's displayed on aXe results section and select ""Inspect"" button to be taken to the block of code where the issue is located.","HTML document does not have a lang attribute.
+
+If the language of a webpage is not specified, the screen reader will assume it is the default language set by the user. This becomes an issue for users who speak multiple languages and access website in more than one language. ",The language is specified on every single webpage.,https://www.screencast.com/t/i8aItKtDnt,3.1.1,A,High,High,,"Visual, Cognitive","Provide lang attribute with valid value ""en"" to the <html> tag. 
+
+Refer to: 
+https://www.w3.org/TR/WCAG20-TECHS/H57.html",Open,,,,,,,
+2,man-auto-13,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Global,Windows/ Chrome,Document must have one main landmark,"1. Go to the URL.
+2. Open the Browser Console.
+3. Run aXe scan.
+4. Look for issue ""Document must have one main landmark"" as it's displayed on aXe results section and select ""Inspect"" button to be taken to the block of code where the issue is located.","There is no main landmark.
+
+Document must have main landmark as it identifies the primary content of the page, otherwise screen reader users will not understand the layout of the page.","When a page contains nested document and/or application roles, each document or application role may have one main landmark.","https://www.screencast.com/t/o0LiuQbJn0Y
+",1.3.1,A,High,High,,"Visual, Cognitive","Provide a <main> landmark or you can also use role=""main"" to mark-up the principal content of the page.
+
+Refer to:
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Main_role",Open,,,,,,,
+3,man-auto-15,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Global,Windows/ Chrome,All page content must be contained by landmarks,"1. Go to the URL.
+2. Use key combination ""insert + f7"" in NVDA to open the elements list.
+3. Verify the landmarks in the element list.","The HTML document does not contain header, main, and footer landmarks.
+
+Landmarks helps user to understand the structure of the document and to identify piece of content.
+","All web pages should have, at least, the following landmarks:
+- Header
+- Main
+- Footer
+",https://www.screencast.com/t/zTF1oYjwwXo,1.3.1,A,High,Low,,"Visual, Cognitive","Use <header> tag as a container of the banner region, <main> tag as a container of main region and <footer> tag as a container of the content info region.
+
+You can also use aria roles for each landmark:
+- Header landmark: role=“banner”,
+- Main landmark: role=“main”,
+- Footer landmark: role=“contentinfo”,
+- Navigation landmark: role=“navigation”,
+- Search: role=“search”
+
+Finally, ensure that <header>, <main>, <footer> should be a direct child of <body> tag.
+
+Refer to:
+https://www.w3.org/WAI/tutorials/page-structure/regions/",Open,,,,,,,
+4,man-sr-41,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Global,"Windows/ Chrome
+macOS/ Safari",Page title is not provided,"1. Go to the URL.
+2. Notice that the page title is not defined in the source code.","Page title is not provided for the web page, as <title> tag is empty in the source code.
+
+This might confuse the user since there is no correlation between the title and the content being displayed on the web page. The title is very useful for user to navigate through different browser tabs.","Web pages must have titles that describe their purpose.
+
+Example: Page title: Current Promotion GNB | West Shore Homes","https://www.screencast.com/t/zsgvlFek1PU4 
+",2.4.2,A,Low,High,,"Visual, Cognitive","Every HTML document must have a <title> tag in the <head> section.
+
+The <title> element should be used to identify the content of an HTML document and it must be descriptive. ",Open,,,,,,,
+5,man-auto-3,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Individual,Windows/ Chrome,Frames must have a title attribute,"1. Go to the URL.
+2. Open the Browser Console.
+3. Run aXe scan.
+4. Look for issue ""Frames must have a title attribute"" as it's displayed on aXe results section and select ""Inspect"" button to be taken to the block of code where the issue is located.","The screen reader does not announce the iframe title for the offer time countdown frame.
+
+Screen reader users have the option to pull up a list of titles for all frames on a page. Adding descriptive, unique titles allows users to quickly find the frame they need. If titles are not present, navigating through frames quickly becomes difficult and confusing.","Every frame has a unique title.
+
+For example: Frame title: Offer time countdown",https://www.screencast.com/t/ownuaqeJe1,4.1.2,A,Low,High,,"Visual, Cognitive","1. Use the title attribute to define an accessible name for an iframe element.
+2. Use the aria-label attribute to define an accessible name for an iframe element.
+3. Use the aria-labelledby attribute to define an accessible name for an iframe element.
+4. Accessible names should be short and describe the contents of the iframe element to help users decide whether to navigate to the iframe or not.
+5. For iframes with no visible content, explicitly identify the iframe as having no information for the user (e.g. title=""No content"").
+
+Refer to:
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
+",Open,,,,,,,
+6,man-no-visual-label,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Individual,"Windows/ Chrome
+macOS/ Safari
+iPhone/ Safari",Visual label not provided,"1. Go to the URL.
+2. Notice that a visual label is not provided for the input fields present in the form ""Are you ready to get started?"".","Visual label is not provided for the form elements ""first name, last name, email, phone number, zip code"".
+
+Relaying on placeholder only may result in a challenge for people with color blindness or cognitive disabilities. People should never lose context with what they're writing.","Visual label is available for form elements ""first name, last name, email, phone number, zip code"".","https://www.screencast.com/t/oKXYfjBrNK
+
+https://www.screencast.com/t/T29e0CX5etZF
+
+https://www.screencast.com/t/N6gcnsvIWYF
+
+https://www.screencast.com/t/DA3fWwTPw",3.3.2,A,Low,High,"All Products GB, 
+
+Door Replacement GBA, 
+
+Door Replacement GNB","Visual, Cognitive","Add a visual label to the input using the <label> tag and properly it link to the input using the attribute ""for"".
+
+
+Refer to:
+https://www.w3schools.com/tags/tag_label.asp",Open,,,,,,,
+7,man-key-1,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Global,"Windows/ Chrome
+macOS/ Safari",Skip to main content link not implemented,"1. Go to the Home Page.
+2. Press the Insert+F7 with Nvda.
+3. Notice that skip to main content link is not present under links list.","There is no available method to bypass blocks of content on the web page.
+
+This may result in some users having to navigate through repeated blocks of content (such as headers) every time the page is loaded.","A link that allows the user to target the beginning of the main landmark.
+
+This link should be at the top of the page and should be the first element to receive focus.","https://www.screencast.com/t/naU9sKac
+",2.4.1,A,High,High,,"Cognitive, Visual, Physical","1. Provide a link (ex: <a href=""#main-content"">skip to main content</a>) at the beginning of the DOM and make it not visible by default (ex: providing visibility: hidden; CSS property).
+2. Provide the id=""main-content"" to the main content wrapper (make sure that the provided ID is unique among all others).
+3. Make the <a> visible on focus.
+
+Refer to:
+https://www.w3.org/TR/WCAG20-TECHS/G1.html",Open,,,,,,,
+8,man-sr-2,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Individual,"Windows/ Chrome / NVDA
+macOS/ Safari/ VoiceOver
+iPhone/ Safari/ VoiceOver",Missing information for the image,"1. Go to the URL.
+2. Navigate the page using the screen reader until reaching the logo image.
+3. Alternative text is not provided for the logo image.","The content displayed in the logo image is not being read by the screen reader.
+
+Important and relevant content is unavailable for screen reader users.","The screen reader reads the content ""west shore logo"" provided on the image when it is reached.","https://www.screencast.com/t/ozXidbdI
+
+https://www.screencast.com/t/Qa6fh0RZH
+
+https://www.screencast.com/t/a2V84uNNMjm
+
+https://www.screencast.com/t/5ewf8MFS0sb9
+
+https://www.screencast.com/t/0cqmPKowmW
+
+https://www.screencast.com/t/AetltpyL
+
+https://www.screencast.com/t/STY9PYrg
+
+https://www.screencast.com/t/6QM6pvvxUFjw
+
+https://www.screencast.com/t/opmwRBEMZ
+
+https://www.screencast.com/t/VC57IMfv
+
+https://www.screencast.com/t/9xI0B8fz
+
+https://www.screencast.com/t/Mx4YukBxv",1.1.1,A,Low,High,"Current Promotion GNBA similar issue is observed with the star rating graphic, 
+
+All Products GBA: Header logo image, 
+
+All Products GBA: Star rating under heading ""See what our customers say"", 
+
+Bath Shower Remodel Landing GNB: Header logo image, 
+
+Bath Shower Remodel Landing GNB, Information images under headings ""Safety Features & Accessories, BACKED BY THOUSANDS OF 5-STAR REVIEWS, Inspiration Gallery, and ACRYLIC"" do not have alternative text, 
+
+Door Replacement GBA: Header logo Image, 
+
+Door Replacement GBA: Reviews Images, 
+
+Door Replacement GBA: Images under heading ""INSPIRATION GALLERY"", 
+
+Door Replacement GNB: Header logo Image, 
+
+Door Replacement GNB: Reviews Images, 
+
+Door Replacement GNB: Images under heading ""INSPIRATION GALLERY"".","Visual, Auditory","Ensure the <img> has an ""alt"" attribute with enough and relevant information.
+
+Best practices for alternative text:
+- Less than 125 characters long.
+- Don't start the alt text with expressions such as ""picture of..."" or ""image of..."" 
+- Describe the image with as much detail as possible.
+
+Refer to:
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
+https://www.w3schools.com/TagS/att_img_longdesc.asp
+https://moz.com/learn/seo/alt-text",Open,,,,,,,
+9,man-sr-57,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Global,"Windows/ Chrome / NVDA
+macOS/ Safari/ VoiceOver
+iPhone/ Safari/ VoiceOver",Missing meaningful sequence in navigation,"1. Go to the URL.
+2. Navigate through the webpage using arrow keys.
+3. Notice the screen reader navigation sequence.","The navigation order provided to the entire webpage is not meaningful.
+
+Note: It is impossible to access the application with the screen reader as the reading order does not match with the presentation order in every section.
+
+Meaningful sequence requires that content presented on the page must be meaningful during navigation to all users. Users navigate content from left to right & assistive technology users such as screen reader users depend on the accessibility tree & DOM structure to let them know how the content is presented on the page. ","Correct and meaningful navigation should be present for the web page.
+
+The screen reader should read the content in the below mentioned sequence using arrow keys:
+1. Header section
+2. Main section
+3. Footer section
+
+Same pattern should be followed in every section present in the different regions .","https://www.screencast.com/t/JMJ4uzLHzJ0H
+",1.3.2,A,Low,High,,Visual,"
+For both navigation systems, using the TAB key or the arrow keys, the screen reader follows the arrangement in the document object model (DOM) and not the order in which the elements are displayed on the screen.
+
+The screen reader should read the content in the below mentioned sequence using arrow keys:
+1. Header section
+2. Main section
+3. Footer section
+Same pattern should be followed in every section present in the different regions.
+
+Refer to:
+https://www.essentialaccessibility.com/blog/css-and-accessibility",Open,,,,,,,
+11,man-sr-33,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Individual,"Windows/ Chrome / NVDA
+macOS/ Safari/ VoiceOver
+iPhone/ Safari/ VoiceOver",Incorrect heading structure,"1. Go to the URL.
+2. Navigate through the website using the H key.
+3. Notice that there are some level of heading missing.","The screen reader jumps from heading level <h1> to heading level <h3> and multiple <h1> headings are also present on the web page.
+
+There are some empty heading tags are also used in the source code.",Heading increases one level at a time and there is only one h1 heading present on the webpage which describes the context of the webpage.,"https://www.screencast.com/t/SGRIh8h6k8
+
+https://www.screencast.com/t/fLKwBNt9zx
+
+https://www.screencast.com/t/SmH3nO3CNt7i",1.3.1,A,Low,Low,"All Products GBA, 
+
+
+Door Replacement GBA","Visual, Cognitive","Make sure heading level should be structured in a hierarchical manner and to increase one level at the time.
+E.g. <h1>, <h2> ... <h6>.
+
+Refer to:
+https://www.w3.org/WAI/tutorials/page-structure/headings/",Open,,,,,,,
+12,man-sr-15,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Individual,"Windows/ Chrome / NVDA
+macOS/ Safari/ VoiceOver
+iPhone/ Safari/ VoiceOver",Unnecessarily heading tag implemented,"1. Go to the URL.
+2. Navigate through the website until reaching the paragraph present under form ""Are you ready to get started?"".
+3. Notice that the element is announced as heading.","The screen reader announces a paragraph ""By clicking the ""Remodel My Home Today"" button, I consent to receive autodialed and/or prerecorded calls........ leads@westshorehome.com. "" as a heading.
+
+This could potentially confuse the user since headings are designed to structure the information in the document and not to provide visual impact.","The screen reader reads the paragraph ""By clicking the ""Remodel My Home Today"" button, I consent to receive autodialed and/or prerecorded calls........ leads@westshorehome.com. "" as plain text.","https://www.screencast.com/t/Mm9DpTDULLea
+
+https://www.screencast.com/t/pkahpEWE567
+
+https://www.screencast.com/t/xHmNsFfnlJhb
+
+https://www.screencast.com/t/TN5DeG27cZ
+
+https://www.screencast.com/t/FLpjMpAv
+
+https://www.screencast.com/t/otMTZ0yvP4",1.3.1,A,Low,High,"Current Promotion GNB: Copyright text, 
+
+All Products GBA, 
+
+Bath Shower Remodel Landing GNB: Text ""(866) 885-0316, www.westshorehome.com, and © 2021 West Shore Home "", 
+
+Door Replacement GBA, 
+
+Door Replacement GNB.",Visual,"Instead of using a <h1/h2> tag, use <span> or <div> tags and use CSS to maintain the visual effect.
+
+Refer to:
+https://www.w3.org/WAI/WCAG21/Techniques/general/G141",Open,,,,,,,
+13,man-sr-9,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Individual,"Windows/ Chrome / NVDA
+macOS/ Safari/ VoiceOver
+iPhone/ Safari/ VoiceOver",Hidden content read by the screen reader,"1. Go to the URL.
+2. Navigate the page using the screen reader until reaching the text ""© 2021 West Shore Home "".
+3. Listen to the screen reader announcing elements not present on the website.","The user reaches some hidden content when navigating with the screen reader.
+
+This could potentially confuse the user due to the content's lack of relevance or it being repeated content.",The content that is not visually displayed on the page should not be reachable by the screen reader user.,"https://www.screencast.com/t/qQ9lpaw6q
+
+https://www.screencast.com/t/LEa1kgW03wVU",1.3.1,A,Low,High,"Door Replacement GNB: After section ""LOCAL TO YOUR AREA"", the screen reader reads hidden links",Visual,"Ensure the content is hidden using the CSS display property set to ""none"".
+
+Refer to:
+https://css-tricks.com/inclusively-hidden/",Open,,,,,,,
+14,man-sr-28,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Individual,"Windows/ Chrome / NVDA
+macOS/ Safari/ VoiceOver
+iPhone/ Safari/ VoiceOver",Incorrect role for control defined,"1. Go to the URL.
+2. Navigate through the website until reaching the element ""See offer details"".
+3. Notice that an incorrect role is defined for the control.","The screen reader announces the current element ""See offer details"" as a link.","The screen reader announces the current element ""See offer details"" as a button.","https://www.screencast.com/t/8exJXSev
+
+https://www.screencast.com/t/SeJPzfMy
+
+https://www.screencast.com/t/1G1eROjr
+
+https://www.screencast.com/t/3YFAXu42D
+
+https://www.screencast.com/t/gYSBy2jWxA
+
+https://www.screencast.com/t/EtoSG0w6",4.1.2,A,Low,High,"All Products GBA: No role is defined for the buttons under heading ""SOME OF OUR FAVORITES"", 
+
+All Products GBA, 
+
+Bath Shower Remodel Landing GNB, 
+
+Door Replacement GBA, 
+
+Door Replacement GNB","Visual, Cognitive","Use the proper <button> tag.
+
+OR
+
+Add a role=""button"". 
+
+Refer to: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
+",Open,,,,,,,
+15,custom,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Individual,"Windows/ Chrome / NVDA
+macOS/ Safari/ VoiceOver
+iPhone/ Safari/ VoiceOver",Time countdown frame content is not accessible,"1. Go to the URL.
+2. Navigate through the website until reaching the countdown frame.
+3. Notice that the screen reader does not read anything when focus reaches the frame.",Time countdown frame content is not accessible to the screen reader user.,Time countdown frame content is accessible to the screen reader user.,"https://www.screencast.com/t/sH9UgeoyQpyF
+
+https://www.screencast.com/t/PXajIspWu",1.3.1,A,Low,High,Bath Shower Remodel Landing GNB,Visual,"The screen reader announce changes each minute with aria live regions.
+
+Use role=""alert"" and aria-live=""assertive"". 
+
+Refer to: https://pauljadam.com/demos/ariacountdown.html",Open,,,,,,,
+16,man-key-7,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Individual,Windows/ Chrome,Focus is not visible on elements,"1. Go to the URL.
+2. Navigate the page using the keyboard.
+3. Notice that focus indicator is not visible on all interactive elements.","Focus is not visible on all interactive elements like ""Remodel My Bathroom, See offer details, leads@westshorehome.com, etc"" while the user is navigating through focusable elements with the keyboard.
+
+Having a visual reference as to where the user is positioned on the page is important to make navigation easier for keyboard-only users and people with cognitive disabilities or attention disorders.","Focus border is visible around all the focusable elements.
+","https://www.screencast.com/t/xmcgizGDvEP
+
+https://www.screencast.com/t/M1t6vEOwLR
+
+https://www.screencast.com/t/KQgxxphA
+
+https://www.screencast.com/t/VvwNVuYI8
+
+https://www.screencast.com/t/jT1cAmJtijFF",2.4.7,AA,Low,High,"All Products GBA: Focus is not visible on all interactive elements, 
+
+Bath Shower Remodel Landing GNB: Focus is not visible on all interactive elements, 
+
+Door Replacement GBA: Focus is not visible on all interactive elements, 
+
+Door Replacement GNB: Focus is not visible on all interactive elements.","Cognitive, Visual, Physical","Provide a visible border/outline on each interactive element using CSS.
+
+Refer to:
+https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-visible.html
+https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/C15",Open,,,,,,,
+17,man-zoom-14,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Individual,Windows/ Chrome,Content misaligned when zooming browser to 200% ,"1. Open the Display Settings.
+2. Set the Scale to 100% and Display Resolution to 1920x1080.
+3. Open the URL in Chrome.
+4. Press the CTRL and + keys at the same time.
+5. Increase the browser zoom to 200%.
+6. Notice how all elements present in the right side becomes misaligned.",All elements present in the right side of the viewport are misaligned to an extent it is missing and cannot be interpreted by the user.,The content adapts itself to the current viewport and has a logic sequence with the context around it without losing coherence.,"https://www.screencast.com/t/rBCMuONv
+
+https://www.screencast.com/t/UeuFgs1Re3e
+
+https://www.screencast.com/t/aJjwNaRUbkF
+
+https://www.screencast.com/t/sGBQHLWD
+
+https://www.screencast.com/t/ZLahYBA1",1.4.4,AA,High,High,"Tab Shower Replacement, 
+
+All Products GBA, 
+
+Door Replacement GBA, 
+
+Door Replacement GNB","Cognitive, Visual","1. Check the display properties and the DOM structure.
+2. Use the CSS media query to adjust the properties when zooming the browser to 200%. 
+
+Also ensure that the height and width of content containers are specified using dynamic units like '%', 'em', 'vh' and 'vw'.
+
+Refer to:
+https://developer.mozilla.org/en-US/docs/Web/CSS/@media
+https://www.w3.org/Style/Examples/007/units.en.html",Open,,,,,,,
+18,man-cc-3,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Global,Windows/ Chrome,Insufficient color contrast,"1. Go to the URL.
+2. Browse through the page until reaching the header section and search for link ""Call Us Today: (866) 885-0316"".
+3. Use Colour Contrast Analyzer to measure the contrast ratio.","The color contrast ratio between the link ""Call Us Today: (866) 885-0316"" and its background is less than 4.5:1.","The color contrast ratio of link ""Call Us Today: (866) 885-0316"" and its background is of at least 4.5:1.",https://www.screencast.com/t/de9d4J04gs,1.4.3,AA,Low,High,,Visual,"Make sure that the element has a contrast ratio of at least 4.5:1.
+
+Good color option:
+Foreground: #1B5993
+Background: #FFFFFF
+
+For more color options:
+https://contrast-finder.tanaguru.com/
+http://colorsafe.co/
+
+Refer to:
+https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+https://www.w3.org/TR/WCAG20-TECHS/G18.html
+https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)
+",Open,,,,,,,
+19,man-cc-4,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Individual,Windows/ Chrome,Content present over irregular background,"1. Go to the URL
+2. Browse through the page until you find the text ""Whether you're upgrading your bath,..."".
+3. Open Colour Contrast Analyser and click on any pixel from the text in the foreground section using the eyedropper tool.
+4. Click on any pixel in the background section using the eyedropper tool.
+5. Measure the contrast ratio between the text and its irregular background color.","The color contrast ratio of the  text ""Whether you're upgrading your bath,..."" is insufficient due to its irregular background.",The color contrast ratio of the text should be of at least 4.5:1.,https://www.screencast.com/t/f0ej9SXj,1.4.3,AA,Low,High,,Visual,"To achieve the minimum contrast ratio between text and an irregular background you can use one of the following techniques:
+ 
+1. Use a background color for the text to pass the minimum contrast ratio, this is achieved by adding a span tag and a class with a background color attribute.
+2. Add a <div> tag with a background-color property to pass the contrast ratio and give it a transparency.
+3. Add a border to the text which passes the minimum contrast ratio.
+4. Add a background gradient that has enough contrast with the text to the <div> container to pass the minimum ratio and place the text over the darkest part of the gradient.
+
+Refer to:
+https://www.essentialaccessibility.com/blog/content-over-images-how-does-this-uxui-trend-impact-accessibility/",Open,,,,,,,
+20,man-cc-3,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Individual,Windows/ Chrome,Insufficient color contrast,"1. Go to the URL.
+2. Browse through the page until reaching the offer countdown section and search for text ""soon"".
+3. Use Colour Contrast Analyzer to measure the contrast ratio.","The color contrast ratio between the text ""soon"" and its background is less than 4.5:1.","The color contrast ratio of text ""soon"" and its background is of at least 4.5:1.","https://www.screencast.com/t/73QOurOD
+
+https://www.screencast.com/t/8GSxP9NV5
+
+https://www.screencast.com/t/JvOivMeeD1
+
+https://www.screencast.com/t/19uOKNjhDkNg",1.4.3,AA,Low,High,"All Products GBA, 
+
+Door Replacement GBA, 
+
+Door Replacement GNB",Visual,"Make sure that the element has a contrast ratio of at least 4.5:1.
+
+Good color option:
+Foreground: #FFFFFF
+Background: #DF1111
+
+For more color options:
+https://contrast-finder.tanaguru.com/
+http://colorsafe.co/
+
+Refer to:
+https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+https://www.w3.org/TR/WCAG20-TECHS/G18.html
+https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)
+",Open,,,,,,,
+21,man-cc-3,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Individual,Windows/ Chrome,Insufficient color contrast,"1. Go to the URL.
+2. Browse through the page until reaching the time countdown section and search for countdown timing.
+3. Use Colour Contrast Analyzer to measure the contrast ratio.",The color contrast ratio between the countdown timing and its background is less than 4.5:1.,The color contrast ratio of countdown timing and its background is of at least 4.5:1.,https://www.screencast.com/t/YjPKUh0LO,1.4.3,AA,Low,High,,Visual,"Make sure that the element has a contrast ratio of at least 4.5:1.
+
+Good color option:
+Foreground: #FFFFFF
+Background: #683808
+
+For more color options:
+https://contrast-finder.tanaguru.com/
+http://colorsafe.co/
+
+Refer to:
+https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+https://www.w3.org/TR/WCAG20-TECHS/G18.html
+https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)
+",Open,,,,,,,
+22,man-cc-3,Current Promotion GNB,https://westshorehome.com/current-promotion-gnb/,Global,Windows/ Chrome,Insufficient color contrast,"1. Go to the URL.
+2. Browse through the page until reaching the form ""Are you ready to get started?
+"" and search for placeholder text ""Email, First Name, Last Name, etc"".
+3. Use Colour Contrast Analyzer to measure the contrast ratio.","The color contrast ratio between the placeholder text ""Email, First Name, Last Name, etc"" and its background is less than 4.5:1.","The color contrast ratio of placeholder text ""Email, First Name, Last Name, etc"" and its background is of at least 4.5:1.",https://www.screencast.com/t/pYkED7omrm,1.4.3,AA,Low,High,,Visual,"Make sure that the element has a contrast ratio of at least 4.5:1.
+
+Good color option:
+Foreground: #4A4A4A
+Background: #FFFFFF
+
+For more color options:
+https://contrast-finder.tanaguru.com/
+http://colorsafe.co/
+
+Refer to:
+https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+https://www.w3.org/TR/WCAG20-TECHS/G18.html
+https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)
+",Open,,,,,,,
+24,man-auto-10,Tab Shower Replacement,https://westshorehome.com/tab-shower-replacement/,Individual,Windows/ Chrome,ID attribute value must be unique,"1. Go to the URL.
+2. Open the Browser Console.
+3. Run aXe scan.
+4. Look for issue ""ID attribute value must be unique"" as it's displayed on aXe results section and select ""Inspect"" button to be taken to the block of code where the issue is located.","More than one instance of an active ID is found.
+
+Duplicate IDs found: lp-pom-button-45
+
+The value assigned to active ID attributes on focusable elements must be unique to prevent the second instance from being overlooked by assistive technology.",No repeated IDs are found.,https://www.screencast.com/t/L8FtIU0Z ,4.1.1,A,High,High,,Visual,"Avoid having two active IDs of a different version (web mobile or desktop version) for the same element at the same time. 
+In case the mobile responsive view is displaying, then the only ID that should be active is the ID of the corresponding mobile version. 
+Make sure that each focusable element on the page with an active ID has a unique value. ",Open,,,,,,,
+25,man-sr-2,Tab Shower Replacement,https://westshorehome.com/tab-shower-replacement/,Individual,"Windows/ Chrome / NVDA
+macOS/ Safari/ VoiceOver
+iPhone/ Safari/ VoiceOver",Missing information for the image,"1. Go to the URL.
+2. Navigate the page using the screen reader until reaching the logo image.
+3. Alternative text is not provided for the logo image.","The content displayed in the image is not being read by the screen reader.
+
+Important and relevant content is unavailable for screen reader users.",The screen reader reads the content provided on the image when it is reached.,"https://www.screencast.com/t/pNgOIcn0k
+
+https://www.screencast.com/t/pXzMtjZ54CeR",1.1.1,A,Low,High,"Shower Replacement: Alternative text is not defined for the informative images under heading ""Tile Patterns, Shower Wall Colors, and Star rating"".","Visual, Auditory","Ensure the <img> has an ""alt"" attribute with enough and relevant information.
+
+Best practices for alternative text:
+- Less than 125 characters long.
+- Don't start the alt text with expressions such as ""picture of..."" or ""image of..."" 
+- Describe the image with as much detail as possible.
+
+Refer to:
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
+https://www.w3schools.com/TagS/att_img_longdesc.asp
+https://moz.com/learn/seo/alt-text",Open,,,,,,,
+26,man-sr-31,Tab Shower Replacement,https://westshorehome.com/tab-shower-replacement/,Individual,"Windows/ Chrome / NVDA
+macOS/ Safari/ VoiceOver
+iPhone/ Safari/ VoiceOver",Missing heading level 1,"1. Go to the URL.
+2. Use the Heading Map Chrome extension.
+3. Notice there is no level 1 heading.","There's no heading level 1 that allows screen reader users to skim through the website.
+
+If there is no heading defined on the page, users waste valuable time getting announced the page as a whole to understand its structure.",There is a heading level 1 present on the website.,"https://www.screencast.com/t/7dyvNfRzvj
+
+https://www.screencast.com/t/iLMAqrQbnACX",1.3.1,A,Low,High,Bath Shower Remodel Landing GNB,Visual,"Add an <h1> tag or use a role=""heading"" with an aria-level=""1"" attribute to identify the main title of the page.
+
+Download the extension on the link below:
+https://chrome.google.com/webstore/detail/headingsmap/flbjommegcjonpdmenkdiocclhjacmbi/related
+
+Refer to:
+https://www.w3.org/WAI/tutorials/page-structure/headings/
+",Open,,,,,,,
+27,man-sr-16,Tab Shower Replacement,https://westshorehome.com/tab-shower-replacement/,Individual,"Windows/ Chrome / NVDA
+macOS/ Safari/ VoiceOver
+iPhone/ Safari/ VoiceOver",Visually appearing heading not tagged as heading,"1. Go to the URL.
+2. Navigate through the website until reaching the text ""An Affordable Way To Upgrade Your Bathroom, Increase Home Value, What We Do, etc"".
+3. Notice that the screen reader announces it as plain text.","The screen reader announces the text ""An Affordable Way To Upgrade Your Bathroom, Increase Home Value, What We Do, etc"" as plain text.
+
+This could potentially confuse the user since headings are designed to structure the information in the document.","The screen reader reads the text ""An Affordable Way To Upgrade Your Bathroom, Increase Home Value, What We Do, etc"" according to the heading structure.
+
+First heading should be tagged as h1 and other heading should be provided according to the heading structure.","https://www.screencast.com/t/jqsJGB5wlA
+
+https://www.screencast.com/t/7PgMUfjB
+
+https://www.screencast.com/t/FUHpaTXE
+
+https://www.screencast.com/t/h2wes9WPAx",1.3.1,A,Low,High,"All the visual appearing headings are not tagged as heading for the screen reader users, 
+
+Bath Shower Remodel Landing GNB, 
+
+Door Replacement GBA: Heading ""Local to your area"", 
+
+Door Replacement GNB: Heading ""Local to your area"".",Visual,"Make sure heading level should be structured in a hierarchical manner and to increase one level at the time.
+E.g. <h1>, <h2> ... <h6>.
+
+Refer to:
+https://www.w3.org/WAI/tutorials/page-structure/headings/",Open,,,,,,,
+28,man-sr-39,Tab Shower Replacement,https://westshorehome.com/tab-shower-replacement/,Individual,"Windows/ Chrome / NVDA
+macOS/ Safari/ VoiceOver
+iPhone/ Safari/ VoiceOver",List not implemented,"1. Go to the URL.
+2. Navigate through the website until reaching the links ""Privacy Policy, Licenses""
+3. Notice that the screen reader is announcing the  links ""Privacy Policy, Licenses"" just as link without list.","The links ""Privacy Policy, and Licenses"" are announced just as link without list by the screen reader.
+
+This might confuse the user and it implies an extra effort for them to understand when they enter/leave the list and how many items it contains.","The screen reader announces the  links ""Privacy Policy, Licenses"" as a list of 02 items.","https://www.screencast.com/t/RdkjALx51dFI
+
+https://www.screencast.com/t/LNcZWwvT55",1.3.1,A,High,High,"Bath Shower Remodel Landing GNB: Under heading ""Payments As Low As $99 A Month*"", elements are not tagged in a unordered list.","Visual, Cognitive","1. Wrap each link inside a <li> tag and then wrap the group inside a <ul> tag.
+2. Provide the desire visual style using CSS.
+
+Refer to:
+https://www.w3.org/WAI/tutorials/page-structure/content/#lists",Open,,,,,,,
+29,man-key-7,Tab Shower Replacement,https://westshorehome.com/tab-shower-replacement/,Individual,Windows/ Chrome,Focus is not visible on elements,"1. Go to the URL.
+2. Navigate the page using the keyboard.
+3. Notice that focus indicator is not visible on the elements.","Focus is not visible on elements ""Combobox Type of Shower Project , button continue, button back, link Privacy Policy, link Licenses, and link Transform Your Bath"" while the user is navigating through focusable elements with the keyboard.
+
+Having a visual reference as to where the user is positioned on the page is important to make navigation easier for keyboard-only users and people with cognitive disabilities or attention disorders.","Focus border is visible around all the focusable elements.
+",https://www.screencast.com/t/gEehV0gva8h,2.4.7,AA,Low,High,,"Cognitive, Visual, Physical","Provide a visible border/outline on each interactive element using CSS.
+
+Refer to:
+https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-visible.html
+https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/C15",Open,,,,,,,
+31,man-cc-4,Tab Shower Replacement,https://westshorehome.com/tab-shower-replacement/,Individual,Windows/ Chrome,Content present over irregular background,"1. Go to the URL
+2. Browse through the page until you find the heading text ""Affordable"".
+3. Open Colour Contrast Analyser and click on any pixel from the text in the foreground section using the eyedropper tool.
+4. Click on any pixel in the background section using the eyedropper tool.
+5. Measure the contrast ratio between the text and its irregular background color.","The color contrast ratio of the heading text ""Affordable"" is insufficient due to its irregular background.",The color contrast ratio of the text should be of at least 4.5:1.,https://www.screencast.com/t/un4rHm3w,1.4.3,AA,Low,High,,Visual,"To achieve the minimum contrast ratio between text and an irregular background you can use one of the following techniques:
+ 
+1. Use a background color for the text to pass the minimum contrast ratio, this is achieved by adding a span tag and a class with a background color attribute.
+2. Add a <div> tag with a background-color property to pass the contrast ratio and give it a transparency.
+3. Add a border to the text which passes the minimum contrast ratio.
+4. Add a background gradient that has enough contrast with the text to the <div> container to pass the minimum ratio and place the text over the darkest part of the gradient.
+
+Refer to:
+https://www.essentialaccessibility.com/blog/content-over-images-how-does-this-uxui-trend-impact-accessibility/",Open,,,,,,,
+32,man-cc-3,Tab Shower Replacement,https://westshorehome.com/tab-shower-replacement/,Individual,Windows/ Chrome,Insufficient color contrast,"1. Go to the URL.
+2. Browse through the page until reaching the heading ""Shower Remodels in One Day"" and search for text ""THOUSANDS, Custom Fit, Lifetime Warranty, Made in USA, and Antimicrobial, Lifetime Warranty, Made in USA"".
+3. Use Colour Contrast Analyzer to measure the contrast ratio.","The color contrast ratio between the text ""THOUSANDS, Custom Fit, Lifetime Warranty, Made in USA, and Antimicrobial, Lifetime Warranty, Made in USA"" and its background is less than 4.5:1.","The color contrast ratio of text ""THOUSANDS, Custom Fit, Lifetime Warranty, Made in USA, and Antimicrobial, Lifetime Warranty, Made in USA"" and its background is of at least 4.5:1.",https://www.screencast.com/t/RRD6Tbh0B,1.4.3,AA,Low,High,The color combination used for the element reported on the screenshot was found several times on other similar elements.,Visual,"Make sure that the element has a contrast ratio of at least 4.5:1.
+
+Good color option:
+Foreground: #004B6B
+Background: #FFFFFF
+
+For more color options:
+https://contrast-finder.tanaguru.com/
+http://colorsafe.co/
+
+Refer to:
+https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+https://www.w3.org/TR/WCAG20-TECHS/G18.html
+https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)
+",Open,,,,,,,
+33,man-cc-1,Tab Shower Replacement,https://westshorehome.com/tab-shower-replacement/,Individual,Windows/ Chrome,Insufficient non-text contrast,"1. Go to the URL.
+2. Browse through the page until reaching the customer review section and search for the rating star icons.
+3. Open Colour Contrast Analyzer, select the dropper tool, click on the foreground section and select any pixel from the rating star icons.
+4. Measure the contrast ratio between the rating star icons and the background color.",The color contrast ratio between the rating star icons and its background is less than 3.0:1.,The color contrast ratio between the rating star icons and its background is of at least of 3.0:1.,https://www.screencast.com/t/51ZjeQMDi,1.4.11,AA,Low,High,,Visual,"Make sure that the element has a contrast ratio of at least 3.0:1.
+
+Good color option:
+Foreground: #704F00
+Background: #D7D5D2
+
+For more color options:
+https://contrast-finder.tanaguru.com/
+http://colorsafe.co/
+
+Refer to:
+https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html
+https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)",Open,,,,,,,
+34,man-cc-3,Tab Shower Replacement,https://westshorehome.com/tab-shower-replacement/,Individual,Windows/ Chrome,Insufficient color contrast,"1. Go to the URL.
+2. Browse through the page until reaching the heading ""Shower Remodels in One Day"" and search for button ""back"" (appear after completing a step in designing flow).
+3. Use Colour Contrast Analyzer to measure the contrast ratio.","The color contrast ratio between the button ""back"" and its background is less than 4.5:1.","The color contrast ratio of button ""back"" and its background is of at least 4.5:1.",https://www.screencast.com/t/m3uTFzFMu88,1.4.3,AA,Low,High,,Visual,"Make sure that the element has a contrast ratio of at least 4.5:1.
+
+Good color option:
+Foreground: #474747
+Background: #FFFFFF
+
+For more color options:
+https://contrast-finder.tanaguru.com/
+http://colorsafe.co/
+
+Refer to:
+https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+https://www.w3.org/TR/WCAG20-TECHS/G18.html
+https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)
+",Open,,,,,,,
+35,man-key-12,Tab Shower Replacement,https://westshorehome.com/tab-shower-replacement/,Individual,"Windows/ Chrome / NVDA
+macOS/ Safari/ VoiceOver
+iPhone/ Safari/ VoiceOver",Incorrect focus order,"1. Go to the URL.
+2. Navigate through the page using the keyboard until you reach the same page link ""Transform Your Bath"".
+3. Notice that focus order is not the same as the one being displayed on the screen after selecting the same page link ""Transform Your Bath"".","After selecting same page link ""Transform Your Bath"", the screen reader focus does not automatically reach the update content ""Start Designing Your New Shower"". 
+
+It is important to provide a logical navigation sequence for keyboard-only user with motor disabilities or non-visual users that can't use the mouse to navigate the page in order for them to fully understand the content.","After selecting same page link ""Transform Your Bath"", the screen reader focus should  automatically reach the update content ""Start Designing Your New Shower"". ","https://www.screencast.com/t/bepcC8sY
+
+https://www.screencast.com/t/7PBYjg4s
+
+https://www.screencast.com/t/c6GzTurBc
+
+https://www.screencast.com/t/0cWK7x9JlbVZ
+
+https://www.screencast.com/t/JmsofreWRVF",2.4.3,A,High,High,"All Products GBA: After selecting the same page links ""Remodel My Home, Schedule A Free Quote"", focus does not move to the updated form content, 
+
+Door Replacement GBA: After selecting the same page links ""Remodel My Door, See For Yourself, Remodel My Entry Door, Remodel My Patio Door, and get started"", focus does not move to the updated form content, 
+
+Door Replacement GNB: After selecting the same page links ""Remodel My Door, See For Yourself, Remodel My Entry Door, Remodel My Patio Door, Remodel My Door and get started"", focus does not move to the updated form content, 
+
+After selecting same page link ""Remodel My Bathroom"", the screen reader focus does not automatically reach the update form content.","Visual, Cognitive, Physical","Pass the #id of the related section to each same page link.
+
+Use the JS function ""element.focus()"" to manage the screen reader focus.
+
+Refer to: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus",Open,,,,,,,
+36,man-key-13,All Products GBA,"
+https://westshorehome.com/all-products-gba",Individual,"Windows/ Chrome / NVDA
+macOS/ Safari/ VoiceOver
+iPhone/ Safari/ VoiceOver",Incorrect focus order,"1. Go to the URL.
+2. Navigate through the page using the keyboard until you reach the buttons under heading ""SOME OF OUR FAVORITES"".
+3. When the button is triggered, notice that a modal is being displayed and focus does not move directly to it.","The modal window don't have a logical navigation sequence using only the keyboard.
+
+It is important to provide a logical navigation sequence using only the keyboard for people with motor disabilities or non-visual users that can't use the mouse to navigate the page in order for them to fully understand the content.","When a modal is displayed, the following should be verified: 
+1. Whether focus is on the first element which can be focused on or on the entire modal.
+2. Whether focus is trapped within the modal or not and whether it's cyclic (from the last element to the first and from the first element to the last).
+3. Whether it's closed by pressing the ESC key.
+4. Whether focus goes back to the element which opened the modal once the modal is closed.","https://www.screencast.com/t/b3pL8FqR
+
+https://www.screencast.com/t/rLgfXo3Z
+
+https://www.screencast.com/t/0L9xTB3NkYe
+
+https://www.screencast.com/t/cYOMqpsuJBzm",2.4.3,A,High,High,"All Products GB: After selecting the button ""see more details', focus does not move to the modal window, 
+
+Door Replacement GBA: After selecting the button ""see more details', focus does not move to the modal window, 
+
+Door Replacement GNB: After selecting the button ""see more details', focus does not move to the modal window.
+","Visual, Cognitive, Physical","Trap focus within the modal using the JS focus() function and make sure to order the elements of the HTML in a logical way, so that the default tab order follows the sequence.
+
+Refer to:
+https://uxdesign.cc/how-to-trap-focus-inside-modal-to-make-it-ada-compliant-6a50f9a70700
+https://hiddedevries.nl/en/blog/2017-01-29-using-javascript-to-trap-focus-in-an-element
+
+For screen reader add the following:
+Also, add a role=""dialog"", an aria-modal=""true"" and an aria-labelledby=""ID_TITLE_MODAL"" to the <div> that wrap the modal.
+
+Refer to :
+https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/dialog.html
+
+",Open,,,,,,,
+37,man-sr-26,All Products GBA,"
+https://westshorehome.com/all-products-gba",Individual,"Windows/ Chrome / NVDA
+macOS/ Safari/ VoiceOver
+iPhone/ Safari/ VoiceOver",Unlabelled button,"1. Go to the URL.
+2. Navigate through the website until reaching the buttons under heading ""SOME OF OUR FAVORITES"".
+3. Notice that the screen reader does not announce the button's purpose.","The screen reader announces the buttons as ""unlabelled"" present under heading ""SOME OF OUR FAVORITES"".
+
+This could potentially confuse the user because they are not aware of the action that is going to be performed.","The screen reader announces the action that is going to be performed when the button is triggered.
+
+Example for Labels according to functional images: Main door, Side Window, Hand Wash in washroom, etc",https://www.screencast.com/t/SeJPzfMy,4.1.2,A,Low,Critical,,"Visual, Cognitive","Use an aria-label or aria-labelledby attribute to provide a proper label for the button.
+
+Refer to:
+https://developers.google.com/web/fundamentals/accessibility/semantics-aria/aria-labels-and-relationships",Open,,,,,,,
+38,man-sr-19,Bath Shower Remodel Landing GNB,"
+https://westshorehome.com/bath-shower-remodel-landing-gnb/",Individual,"Windows/ Chrome / NVDA
+macOS/ Safari/ VoiceOver
+iPhone/ Safari/ VoiceOver",Links must have discernible text,"1. Go to the URL.
+2. Navigate through the website using keyboard navigation or tab navigation until reaching the link ""(866) 885-0316"".
+3. Notice the purpose of this link is not being correctly communicated to screen reader users.","The link ""(866) 885-0316"" is not descriptive or accurate, neither is it providing accurate information about where it is redirecting the user to.
+ 
+This might be causing some difficulties for all users to navigate the website—but particularly for those with cognitive, language, and learning disabilities.","The adjacent text ""Call Us Today: (866) 885-0316"" provide full context about where the user is going to be redirected to.",https://www.screencast.com/t/tCvZv32n,2.4.4,A,Low,High,,"Cognitive, Visual","Three possible actions
+a. Add more descriptive text within the <a> tag.
+b. Use an aria-label or aria-labelledby attribute to provide proper context to each link.
+c. Use an aria-describedby attribute to add more information about the link.
+
+Refer to:
+https://developers.google.com/web/fundamentals/accessibility/semantics-aria/aria-labels-and-relationships
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-describedby_attribute",Open,,,,,,,
+39,man-sr-52,Door Replacement GBA,"
+https://westshorehome.com/door-replacement-gba/",Individual,"Windows/ Chrome / NVDA
+macOS/ Safari/ VoiceOver
+iPhone/ Safari/ VoiceOver",Block quotes not implemented,"1. Go to the URL.
+2. Navigate through the page until you reach the quoted text ""The entry door looks fantastic..., I am so pleased with our new door and storm door..."".
+3. Notice that the screen reader announces it as plain text.","The screen reader reads the quoted text ""The entry door looks fantastic..., I am so pleased with our new door and storm door..."" as plain text.
+
+When blockquotes are not properly marked up, the navigation with a screen reader turns confusing or inaccurate.","The screen reader reads the text ""The entry door looks fantastic..., I am so pleased with our new door and storm door..."" as a quotation.","https://www.screencast.com/t/w1y6SRiXYY
+
+https://www.screencast.com/t/nl1Ib4dTMAC",1.3.1,A,Low,Low,Door Replacement GNB,"Visual, Cognitive","1. Wrap the quote in a <figure> to make the CSS styling easier.
+2. Use the <blockquote> tag at the beginning of the quote.
+3. Add <cite> tag to wrap the source of the quote.
+
+Refer to:
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote
+",Open,,,,,,,
+40,man-cc-3,Bath Shower Remodel Landing GNB,https://westshorehome.com/bath-shower-remodel-landing-gnb/,Individual,Windows/ Chrome,Insufficient color contrast,"1. Go to the URL.
+2. Browse through the page until reaching the rating section and search for text ""DON'T JUST TAKE OUR WORD FOR IT"".
+3. Use Colour Contrast Analyzer to measure the contrast ratio.","The color contrast ratio between the text ""DON'T JUST TAKE OUR WORD FOR IT"" and its background is less than 4.5:1.","The color contrast ratio of text ""DON'T JUST TAKE OUR WORD FOR IT"" and its background is of at least 4.5:1.","https://www.screencast.com/t/sYZwDcK8
+
+https://www.screencast.com/t/0r1xLlqiVOLU
+
+https://www.screencast.com/t/nynOBV4M",1.4.3,AA,Low,High,"Bath Shower Remodel Landing GNB: Text ""THE IDEAL SOLUTION"", 
+
+Bath Shower Remodel Landing GNB: Image of text ""4.8""",Visual,"Make sure that the element has a contrast ratio of at least 4.5:1.
+
+Good color option:
+Foreground: #11526E
+Background: #FFFFFF
+
+For more color options:
+https://contrast-finder.tanaguru.com/
+http://colorsafe.co/
+
+Refer to:
+https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+https://www.w3.org/TR/WCAG20-TECHS/G18.html
+https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)
+",Open,,,,,,,
+41,man-cc-3,Bath Shower Remodel Landing GNB,https://westshorehome.com/bath-shower-remodel-landing-gnb/,Individual,Windows/ Chrome,Insufficient color contrast,"1. Go to the URL.
+2. Browse through the page until reaching the rating section and search for image of text ""4.8, 4.6, 4.5, etc"".
+3. Use Colour Contrast Analyzer to measure the contrast ratio.","The color contrast ratio between the image of text ""4.6, 4.5, etc"" and its background is less than 4.5:1.","The color contrast ratio of image of text ""4.6, 4.5, etc"" and its background is of at least 4.5:1.","https://www.screencast.com/t/WqZgcwljZKT
+
+https://www.screencast.com/t/jhQPJ7rg
+
+https://www.screencast.com/t/LsAROvrRa9",1.4.3,AA,Low,High,"Door Replacement GBA, 
+
+Door Replacement GNB",Visual,"Make sure that the element has a contrast ratio of at least 4.5:1.
+
+Good color option:
+Foreground: #424242
+Background: #FFFFFF
+
+For more color options:
+https://contrast-finder.tanaguru.com/
+http://colorsafe.co/
+
+Refer to:
+https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+https://www.w3.org/TR/WCAG20-TECHS/G18.html
+https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)
+",Open,,,,,,,
+42,man-cc-3,Bath Shower Remodel Landing GNB,https://westshorehome.com/bath-shower-remodel-landing-gnb/,Individual,Windows/ Chrome,Insufficient color contrast,"1. Go to the URL.
+2. Browse through the page until reaching the ""Acrylic"" section and search for image of text ""The ideal solution, Avg cost $4500-$6000, etc"".
+3. Use Colour Contrast Analyzer to measure the contrast ratio.","The color contrast ratio between the image of text ""The ideal solution, Avg cost $4500-$6000, etc"" and its background is less than 4.5:1.","The color contrast ratio of image of text ""The ideal solution, Avg cost $4500-$6000, etc"" and its background is of at least 4.5:1.",https://www.screencast.com/t/uIYCZ1NC,1.4.3,AA,Low,High,,Visual,"Make sure that the element has a contrast ratio of at least 4.5:1.
+
+Good color option:
+Foreground: #FFFFFF
+Background: #0054A5
+
+For more color options:
+https://contrast-finder.tanaguru.com/
+http://colorsafe.co/
+
+Refer to:
+https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+https://www.w3.org/TR/WCAG20-TECHS/G18.html
+https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)
+",Open,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
